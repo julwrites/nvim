@@ -1,6 +1,6 @@
 nvim = require "nvim"
 
-function update() 
+function config() 
   -- Display row number
   nvim.wo.number = true
   nvim.command(":set nowrap")
@@ -16,7 +16,6 @@ function update()
   nvim.o.expandtab = true
   nvim.o.tabstop = 2
   nvim.o.shiftwidth = 2
-
 end
 
-return { update = update }
+return { config = config }
