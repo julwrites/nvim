@@ -16,6 +16,8 @@ function config()
   nvim.o.expandtab = true
   nvim.o.tabstop = 2
   nvim.o.shiftwidth = 2
+
+  nvim.g.completeopt = {'menu', 'menuone', 'noselect'}
 end
 
 return { config = config }
