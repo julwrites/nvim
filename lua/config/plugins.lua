@@ -155,7 +155,7 @@ function update()
   packer = require("packer")
 
   packer.init {
-            display = { non_interactive = false }, -- Silent install and update
+            display = { non_interactive = true }, -- Silent install and update
             profile = { enable = true } -- Enable profiling for package management
           }
 

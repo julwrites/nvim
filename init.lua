@@ -3,8 +3,8 @@ print("*** *** Julwrites' Neovim Config *** ***")
 print("****************************************")
 
 -- Stuff that needs to be set before plugins run
-warm = require("config.warmups")
-warm.up()
+preinit = require("config.preinit")
+preinit.config()
 
 plug = require("config.plugins")
 plug.update()
