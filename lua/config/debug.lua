@@ -1,7 +1,7 @@
-dap = require("dap")
-nvim = require("nvim")
+local dap = require("dap")
+local nvim = require("nvim")
 
-function load_configs()
+function Load_configs()
   --- Python debug setup
   dap.adapters = {
     python = {
@@ -23,4 +23,4 @@ function load_configs()
   }
 end
 
-return { load_configs = load_configs }
+return { load_configs = Load_configs }

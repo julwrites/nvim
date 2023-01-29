@@ -1,6 +1,6 @@
-nvim = require "nvim"
+local nvim = require "nvim"
 
-function config() 
+function Config()
   -- Display row number
   nvim.wo.number = true
   nvim.command(":set nowrap")
@@ -20,4 +20,4 @@ function config()
   nvim.g.completeopt = {'menu', 'menuone', 'noselect'}
 end
 
-return { config = config }
+return { config = Config }

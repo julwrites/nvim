@@ -1,9 +1,9 @@
 local function ensure_packer()
-  local fn = vim.fn
+  local fn = nvim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    nvim.cmd [[packadd packer.nvim]]
     return true
   end
   return false
@@ -11,7 +11,7 @@ end
 
 
 local function config(use)
-  nvim = require "nvim" 
+  nvim = require "nvim"
 
  --------------------------------------------------------------------------------
  -- Base packages
@@ -20,18 +20,18 @@ local function config(use)
   use "norcalli/nvim.lua" -- Lua functions for nvim
   use "nvim-lua/plenary.nvim" -- Lua functions, very useful for a lot of lua-based plugins
   use "MunifTanjim/nui.nvim" -- UI for Neovim
-  use { "arsham/arshlib.nvim", 
-        requires = { 
+  use { "arsham/arshlib.nvim",
+        requires = {
           { "nvim-lua/plenary.nvim", opt = true },
           { "MunifTanjim/nui.nvim", opt = true }
-        } 
+        }
       } -- Functions for Neovim
 
  --------------------------------------------------------------------------------
  -- Interface packages
  --------------------------------------------------------------------------------
   use "ryanoasis/vim-devicons" -- Icons for file interaction
-  use "nvim-tree/nvim-web-devicons" 
+  use "nvim-tree/nvim-web-devicons"
   use { "navarasu/onedark.nvim",
         config = function() require("onedark").load() end
       }
@@ -52,11 +52,11 @@ local function config(use)
         end
       }
 
-  use { "junegunn/fzf", 
+  use { "junegunn/fzf",
         run = "./install --bin"}
   use { "ibhagwan/fzf-lua",
         -- optional for icon support
-        requires = { 
+        requires = {
           { "nvim-tree/nvim-web-devicons", opt = true },
           { "junegunn/fzf", opt = true }
         }
@@ -91,7 +91,7 @@ local function config(use)
  --------------------------------------------------------------------------------
 
   use { "akinsho/toggleterm.nvim",
-        tag = '*', 
+        tag = '*',
         config = function()
           require("toggleterm").setup {
             open_mapping = [[<C-t>]],
@@ -120,14 +120,14 @@ local function config(use)
       }
 
   -- Misc Tools
-  use { "vimwiki/vimwiki", 
-        config = function() 
+  use { "vimwiki/vimwiki",
+        config = function()
           nvim.g.vimwiki_list = {{
             path = "~/julwrites/wiki/vimwiki",
             syntax = "markdown",
             ext = ".md"
          }}
-        end 
+        end
       } -- Local wiki
   use "wannesm/wmgraphviz.vim" -- Graphviz
 
@@ -189,7 +189,7 @@ local function config(use)
           nvim.set_keymap("n", "<C-p><C-d><C-f>", ":Telescope dap frames<CR>", {})
         end
       }
-  use { "rcarriga/nvim-dap-ui", 
+  use { "rcarriga/nvim-dap-ui",
         requires = {
           { "mfussenegger/nvim-dap", opt = false },
         },
@@ -201,7 +201,7 @@ local function config(use)
         config = function()
           require("cmp").setup({
             enabled = function()
-              return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+              return nvim.nvim_buf_get_option(0, "buftype") ~= "prompt"
                   or require("cmp_dap").is_dap_buffer()
             end
           })
@@ -292,22 +292,22 @@ local function config(use)
 
 end
 
-function update()
-  packer_bootstrap_success = ensure_packer()
+function Update()
+  if ensure_packer() then
+    local packer = require("packer")
 
-  packer = require("packer")
+    packer.init {
+              display = { non_interactive = false }, -- Silent install and update
+              profile = { enable = true } -- Enable profiling for package management
+            }
 
-  packer.init {
-            display = { non_interactive = false }, -- Silent install and update
-            profile = { enable = true } -- Enable profiling for package management
-          }
+    packer.reset()
 
-  packer.reset()
+    config(packer.use)
 
-  config(packer.use)
-
-  packer.sync()
+    packer.sync()
+  end
 
 end
 
-return { update = update }
+return { update = Update }
