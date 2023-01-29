@@ -100,6 +100,7 @@ local function config(use)
             autochdir = true,
             start_in_insert = true,
           }
+          nvim.set_keymap("t", "<Esc>", "<C-\\><C-n>", {})
         end
       }
 
@@ -299,6 +300,7 @@ local function config(use)
             "volar",
             "sourcekit",
             "rls",
+            "ltex"
           }) do
             lspconfig[lsp].setup {
               capabilities = capabilities
