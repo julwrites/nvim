@@ -1,6 +1,5 @@
-local nvim = require "nvim"
-
 function Config()
+  local nvim = require "nvim"
   -- Display row number
   nvim.wo.number = true
   nvim.command(":set nowrap")

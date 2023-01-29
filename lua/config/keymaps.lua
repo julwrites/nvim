@@ -1,6 +1,5 @@
-local nvim = require "nvim" 
-
 function Config() 
+  local nvim = require "nvim" 
 
   -- Neovim config
   nvim.set_keymap("n", "<C-\\><C-v><C-e>", ":e $MYVIMRC<CR>", {}) -- Timestamp

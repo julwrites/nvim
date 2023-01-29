@@ -1,3 +1,5 @@
+nvim = require "nvim" -- Ignore warning here, better to define once for the whole file than set it locally in every single config function
+
 local function ensure_packer()
   local fn = nvim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -11,8 +13,6 @@ end
 
 
 local function config(use)
-  nvim = require "nvim"
-
  --------------------------------------------------------------------------------
  -- Base packages
  --------------------------------------------------------------------------------
@@ -146,7 +146,11 @@ local function config(use)
 
   -- LSP
   use "neovim/nvim-lspconfig"
-  use "hrsh7th/cmp-nvim-lsp"
+  use { "hrsh7th/cmp-nvim-lsp",
+        requires = {
+          { "neovim/nvim-lspconfig", opt = false }
+        }
+      }
 
   -- Snippets
   use "rafamadriz/friendly-snippets"
@@ -201,7 +205,7 @@ local function config(use)
         config = function()
           require("cmp").setup({
             enabled = function()
-              return nvim.nvim_buf_get_option(0, "buftype") ~= "prompt"
+              return nvim.bo.buftype ~= "prompt"
                   or require("cmp_dap").is_dap_buffer()
             end
           })
@@ -222,7 +226,10 @@ local function config(use)
   use { "hrsh7th/nvim-cmp",
         requires = {
           { "L3MON4D3/LuaSnip", opt = true },
-          { "hrsh7th/cmp-nvim-lsp", opt = true }
+          { "hrsh7th/cmp-nvim-lsp", opt = true },
+          { "hrsh7th/cmp-buffer", opt = true },
+          { "hrsh7th/cmp-path", opt = true },
+          { "hrsh7th/cmp-cmdline", opt = true}
         },
         config = function()
           local cmp = require'cmp'
@@ -281,32 +288,42 @@ local function config(use)
           })
 
           -- Set up lspconfig.
+          local lspconfig = require('lspconfig')
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-          -- TODO: List and run through configs
-          require('lspconfig')['sumneko_lua'].setup {
-            capabilities = capabilities
-          }
+          for _, lsp in ipairs({
+            "sumneko_lua",
+            "bashls",
+            "pyright",
+            "tsserver",
+            "volar",
+            "sourcekit",
+            "rls",
+          }) do
+            lspconfig[lsp].setup {
+              capabilities = capabilities
+            }
+          end
         end
       }
 
 end
 
 function Update()
-  if ensure_packer() then
-    local packer = require("packer")
+  _ = ensure_packer()
 
-    packer.init {
-              display = { non_interactive = false }, -- Silent install and update
-              profile = { enable = true } -- Enable profiling for package management
-            }
+  local packer = require("packer")
 
-    packer.reset()
+  packer.init {
+            display = { non_interactive = false }, -- Silent install and update
+            profile = { enable = true } -- Enable profiling for package management
+          }
 
-    config(packer.use)
+  packer.reset()
 
-    packer.sync()
-  end
+  config(packer.use)
+
+  packer.sync()
 
 end
 

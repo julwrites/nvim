@@ -1,7 +1,6 @@
-local dap = require("dap")
-local nvim = require("nvim")
-
 function Load_configs()
+  local dap = require("dap")
+  local nvim = require("nvim")
   --- Python debug setup
   dap.adapters = {
     python = {
