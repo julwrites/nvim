@@ -161,7 +161,6 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n«\2\0\0\6\0\v\0\0296\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\1K\0\1\0001:Telescope lsp_dynamic_workspace_symbols<CR>\15<C-g><C-s>\":Telescope lsp_references<CR>\15<C-g><C-r>#:Telescope lsp_definitions<CR>\15<C-g><C-h>(:Telescope lsp_type_definitions<CR>\15<C-g><C-d>\6v\15set_keymap\tnvim\0" },
     loaded = true,
     path = "/Users/julian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -209,7 +208,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\nâ\b\0\0\6\0\31\0c6\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\15\0'\4\16\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\17\0'\4\18\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\19\0'\4\20\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\21\0'\4\22\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\23\0'\4\24\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\25\0'\4\26\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\27\0'\4\28\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\29\0'\4\30\0004\5\0\0B\0\5\1K\0\1\0\27:Telescope keymaps<CR>\15<C-p><C-k>\28:Telescope oldfiles<CR>\15<C-p><C-m>\27:Telescope buffers<CR>\15<C-p><C-b>\29:Telescope help_tags<CR>\15<C-p><C-h>\19:Telescope<CR>\n<C-p>.:Telescope git_commits theme=dropdown<CR>\15<C-g><C-c>/:Telescope git_branches theme=dropdown<CR>\15<C-g><C-b>-:Telescope git_status theme=dropdown<CR>\15<C-g><C-g>+:Telescope commands theme=dropdown<CR>\15<C-p><C-p>':Telescope git_files theme=ivy<CR>\15<C-g><C-f>(:Telescope find_files theme=ivy<CR>\15<C-p><C-f>':Telescope live_grep theme=ivy<CR>\15<C-f><C-g>(:Telescope treesitter theme=ivy<CR>\15<C-f><C-f>7:Telescope current_buffer_fuzzy_find theme=ivy<CR>\n<C-f>\6n\15set_keymap\tnvim\0" },
+    config = { "\27LJ\2\n∏\a\0\0\6\0\29\0\\6\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\15\0'\4\16\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\17\0'\4\18\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\19\0'\4\20\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\21\0'\4\22\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\23\0'\4\24\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\25\0'\4\26\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\27\0'\4\28\0004\5\0\0B\0\5\1K\0\1\0\27:Telescope keymaps<CR>\15<C-p><C-k>\28:Telescope oldfiles<CR>\15<C-p><C-m>\27:Telescope buffers<CR>\15<C-p><C-b>\29:Telescope help_tags<CR>\15<C-p><C-h>\19:Telescope<CR>\n<C-p>/:Telescope git_branches theme=dropdown<CR>\15<C-g><C-b>-:Telescope git_status theme=dropdown<CR>\15<C-g><C-g>+:Telescope commands theme=dropdown<CR>\15<C-p><C-p>':Telescope git_files theme=ivy<CR>\15<C-g><C-f>(:Telescope find_files theme=ivy<CR>\15<C-p><C-f>':Telescope live_grep theme=ivy<CR>\15<C-f><C-g>(:Telescope treesitter theme=ivy<CR>\15<C-f><C-f>7:Telescope current_buffer_fuzzy_find theme=ivy<CR>\n<C-f>\6n\15set_keymap\tnvim\0" },
     loaded = true,
     path = "/Users/julian/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -221,7 +220,7 @@ _G.packer_plugins = {
     url = "https://github.com/jedrzejboczar/toggletasks.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n—\1\0\0\6\0\t\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\1K\0\1\0\15<C-\\><C-n>\n<Esc>\6t\15set_keymap\tnvim\1\0\5\20start_in_insert\2\14autochdir\2\22terminal_mappings\2\20insert_mappings\2\17open_mapping\n<C-t>\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n—\1\0\0\6\0\t\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\1K\0\1\0\15<C-\\><C-n>\n<Esc>\6t\15set_keymap\tnvim\1\0\5\20insert_mappings\2\17open_mapping\n<C-t>\20start_in_insert\2\14autochdir\2\22terminal_mappings\2\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/julian/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -247,7 +246,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-surround"
   },
   vimwiki = {
-    config = { "\27LJ\2\np\0\0\3\0\4\0\a6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0K\0\1\0\1\0\3\bext\b.md\vsyntax\rmarkdown\tpath\29~/julwrites/wiki/vimwiki\17vimwiki_list\6g\tnvim\0" },
+    config = { "\27LJ\2\np\0\0\3\0\4\0\a6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0K\0\1\0\1\0\3\vsyntax\rmarkdown\tpath\29~/julwrites/wiki/vimwiki\bext\b.md\17vimwiki_list\6g\tnvim\0" },
     loaded = true,
     path = "/Users/julian/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
@@ -260,14 +259,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Config for: nvim-dap-ui
 time([[Config for nvim-dap-ui]], true)
 try_loadstring("\27LJ\2\ne\0\0\6\0\5\0\b6\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\1K\0\1\0%:lua require'dapui'.toggle()<CR>\15<C-p><C-d>\6n\15set_keymap\tnvim\0", "config", "nvim-dap-ui")
 time([[Config for nvim-dap-ui]], false)
--- Config for: vimwiki
-time([[Config for vimwiki]], true)
-try_loadstring("\27LJ\2\np\0\0\3\0\4\0\a6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0K\0\1\0\1\0\3\bext\b.md\vsyntax\rmarkdown\tpath\29~/julwrites/wiki/vimwiki\17vimwiki_list\6g\tnvim\0", "config", "vimwiki")
-time([[Config for vimwiki]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\nç\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\foptions\1\0\0\15extensions\1\4\0\0\rfugitive\bfzf\15toggleterm\1\0\1\ntheme\rcodedark\nsetup\flualine\frequire\0", "config", "lualine.nvim")
@@ -280,38 +279,34 @@ time([[Config for nvim-dap]], false)
 time([[Config for cmp-dap]], true)
 try_loadstring("\27LJ\2\nx\0\0\3\0\a\0\0156\0\0\0009\0\1\0009\0\2\0\a\0\3\0X\0\bÄ6\0\4\0'\2\5\0B\0\2\0029\0\6\0B\0\1\2X\1\3Ä+\0\1\0X\1\1Ä+\0\2\0L\0\2\0\18is_dap_buffer\fcmp_dap\frequire\vprompt\fbuftype\abo\tnvim¿\1\1\0\6\0\v\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0003\3\3\0=\3\5\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\6\0005\2\a\0005\3\t\0004\4\3\0005\5\b\0>\5\1\4=\4\n\3B\0\3\1K\0\1\0\fsources\1\0\0\1\0\1\tname\bdap\1\4\0\0\rdap-repl\18dapui_watches\16dapui_hover\rfiletype\fenabled\1\0\0\0\nsetup\bcmp\frequire\0", "config", "cmp-dap")
 time([[Config for cmp-dap]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\nâ\b\0\0\6\0\31\0c6\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\15\0'\4\16\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\17\0'\4\18\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\19\0'\4\20\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\21\0'\4\22\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\23\0'\4\24\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\25\0'\4\26\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\27\0'\4\28\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\29\0'\4\30\0004\5\0\0B\0\5\1K\0\1\0\27:Telescope keymaps<CR>\15<C-p><C-k>\28:Telescope oldfiles<CR>\15<C-p><C-m>\27:Telescope buffers<CR>\15<C-p><C-b>\29:Telescope help_tags<CR>\15<C-p><C-h>\19:Telescope<CR>\n<C-p>.:Telescope git_commits theme=dropdown<CR>\15<C-g><C-c>/:Telescope git_branches theme=dropdown<CR>\15<C-g><C-b>-:Telescope git_status theme=dropdown<CR>\15<C-g><C-g>+:Telescope commands theme=dropdown<CR>\15<C-p><C-p>':Telescope git_files theme=ivy<CR>\15<C-g><C-f>(:Telescope find_files theme=ivy<CR>\15<C-p><C-f>':Telescope live_grep theme=ivy<CR>\15<C-f><C-g>(:Telescope treesitter theme=ivy<CR>\15<C-f><C-f>7:Telescope current_buffer_fuzzy_find theme=ivy<CR>\n<C-f>\6n\15set_keymap\tnvim\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: toggletasks.nvim
-time([[Config for toggletasks.nvim]], true)
-try_loadstring("\27LJ\2\n‘\2\0\0\6\0\14\0!6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\1\0B\0\2\0016\0\5\0009\0\6\0'\2\a\0'\3\b\0'\4\t\0004\5\0\0B\0\5\0016\0\5\0009\0\6\0'\2\a\0'\3\n\0'\4\v\0004\5\0\0B\0\5\0016\0\5\0009\0\6\0'\2\a\0'\3\f\0'\4\r\0004\5\0\0B\0\5\1K\0\1\0$:Telescope toggletasks edit<CR>\15<C-t><C-e>%:Telescope toggletasks spawn<CR>\15<C-t><C-s>&:Telescope toggletasks select<CR>\15<C-t><C-t>\6n\15set_keymap\tnvim\19load_extension\14telescope\nsetup\16toggletasks\frequire\0", "config", "toggletasks.nvim")
-time([[Config for toggletasks.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n—\1\0\0\6\0\t\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\1K\0\1\0\15<C-\\><C-n>\n<Esc>\6t\15set_keymap\tnvim\1\0\5\20start_in_insert\2\14autochdir\2\22terminal_mappings\2\20insert_mappings\2\17open_mapping\n<C-t>\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n«\2\0\0\6\0\v\0\0296\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\1K\0\1\0001:Telescope lsp_dynamic_workspace_symbols<CR>\15<C-g><C-s>\":Telescope lsp_references<CR>\15<C-g><C-r>#:Telescope lsp_definitions<CR>\15<C-g><C-h>(:Telescope lsp_type_definitions<CR>\15<C-g><C-d>\6v\15set_keymap\tnvim\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: telescope-dap.nvim
-time([[Config for telescope-dap.nvim]], true)
-try_loadstring("\27LJ\2\nŒ\3\0\0\6\0\17\0*6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\15\0'\4\16\0004\5\0\0B\0\5\1K\0\1\0\30:Telescope dap frames<CR>\20<C-p><C-d><C-f>!:Telescope dap variables<CR>\20<C-p><C-d><C-v>(:Telescope dap list_breakpoints<CR>\20<C-p><C-d><C-b>%:Telescope dap configuration<CR>\20<C-p><C-d><C-c> :Telescope dap commands<CR>\20<C-p><C-d><C-d>\6n\15set_keymap\tnvim\bdap\19load_extension\14telescope\frequire\0", "config", "telescope-dap.nvim")
-time([[Config for telescope-dap.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire¬\a\1\0\v\0000\0z6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0034\4\0\0=\4\b\0039\4\t\0009\4\n\0049\4\v\0045\6\r\0009\a\t\0009\a\f\a)\t¸ˇB\a\2\2=\a\14\0069\a\t\0009\a\f\a)\t\4\0B\a\2\2=\a\15\0069\a\t\0009\a\16\aB\a\1\2=\a\17\0069\a\t\0009\a\18\aB\a\1\2=\a\19\0069\a\t\0009\a\20\a5\t\21\0B\a\2\2=\a\22\6B\4\2\2=\4\t\0039\4\23\0009\4\24\0044\6\3\0005\a\25\0>\a\1\0065\a\26\0>\a\2\0064\a\3\0005\b\27\0>\b\1\aB\4\3\2=\4\24\3B\1\2\0019\1\2\0009\1\28\1'\3\29\0005\4 \0009\5\23\0009\5\24\0054\a\3\0005\b\30\0>\b\1\a4\b\3\0005\t\31\0>\t\1\bB\5\3\2=\5\24\4B\1\3\0019\1\2\0009\1!\0015\3\"\0005\4#\0009\5\t\0009\5\n\0059\5!\5B\5\1\2=\5\t\0044\5\3\0005\6$\0>\6\1\5=\5\24\4B\1\3\0019\1\2\0009\1!\1'\3%\0005\4&\0009\5\t\0009\5\n\0059\5!\5B\5\1\2=\5\t\0049\5\23\0009\5\24\0054\a\3\0005\b'\0>\b\1\a4\b\3\0005\t(\0>\t\1\bB\5\3\2=\5\24\4B\1\3\0016\1\0\0'\3)\0B\1\2\0026\2\0\0'\4*\0B\2\2\0029\2+\2B\2\1\0026\3,\0005\5-\0B\3\2\4X\6\5Ä8\b\a\0019\b\2\b5\n.\0=\2/\nB\b\2\1E\6\3\3R\6˘\127K\0\1\0\17capabilities\1\0\0\1\t\0\0\16sumneko_lua\vbashls\fpyright\rtsserver\nvolar\14sourcekit\brls\tltex\vipairs\25default_capabilities\17cmp_nvim_lsp\14lspconfig\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\6:\1\0\1\tname\vbuffer\1\0\0\1\3\0\0\6/\6?\fcmdline\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\fcmp_git\14gitcommit\rfiletype\1\0\1\tname\vbuffer\1\0\1\tname\fluasnip\1\0\1\tname\rnvim_lsp\fsources\vconfig\t<CR>\1\0\1\vselect\2\fconfirm\n<C-e>\nabort\14<C-Space>\rcomplete\n<C-f>\n<C-b>\1\0\0\16scroll_docs\vinsert\vpreset\fmapping\vwindow\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: vimwiki
+time([[Config for vimwiki]], true)
+try_loadstring("\27LJ\2\np\0\0\3\0\4\0\a6\0\0\0009\0\1\0004\1\3\0005\2\3\0>\2\1\1=\1\2\0K\0\1\0\1\0\3\vsyntax\rmarkdown\tpath\29~/julwrites/wiki/vimwiki\bext\b.md\17vimwiki_list\6g\tnvim\0", "config", "vimwiki")
+time([[Config for vimwiki]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n—\1\0\0\6\0\t\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\1K\0\1\0\15<C-\\><C-n>\n<Esc>\6t\15set_keymap\tnvim\1\0\5\20insert_mappings\2\17open_mapping\n<C-t>\20start_in_insert\2\14autochdir\2\22terminal_mappings\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n∏\a\0\0\6\0\29\0\\6\0\0\0009\0\1\0'\2\2\0'\3\3\0'\4\4\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\5\0'\4\6\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\15\0'\4\16\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\17\0'\4\18\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\19\0'\4\20\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\21\0'\4\22\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\23\0'\4\24\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\25\0'\4\26\0004\5\0\0B\0\5\0016\0\0\0009\0\1\0'\2\2\0'\3\27\0'\4\28\0004\5\0\0B\0\5\1K\0\1\0\27:Telescope keymaps<CR>\15<C-p><C-k>\28:Telescope oldfiles<CR>\15<C-p><C-m>\27:Telescope buffers<CR>\15<C-p><C-b>\29:Telescope help_tags<CR>\15<C-p><C-h>\19:Telescope<CR>\n<C-p>/:Telescope git_branches theme=dropdown<CR>\15<C-g><C-b>-:Telescope git_status theme=dropdown<CR>\15<C-g><C-g>+:Telescope commands theme=dropdown<CR>\15<C-p><C-p>':Telescope git_files theme=ivy<CR>\15<C-g><C-f>(:Telescope find_files theme=ivy<CR>\15<C-p><C-f>':Telescope live_grep theme=ivy<CR>\15<C-f><C-g>(:Telescope treesitter theme=ivy<CR>\15<C-f><C-f>7:Telescope current_buffer_fuzzy_find theme=ivy<CR>\n<C-f>\6n\15set_keymap\tnvim\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: telescope-dap.nvim
+time([[Config for telescope-dap.nvim]], true)
+try_loadstring("\27LJ\2\nŒ\3\0\0\6\0\17\0*6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0'\3\a\0'\4\b\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\t\0'\4\n\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\v\0'\4\f\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\r\0'\4\14\0004\5\0\0B\0\5\0016\0\4\0009\0\5\0'\2\6\0'\3\15\0'\4\16\0004\5\0\0B\0\5\1K\0\1\0\30:Telescope dap frames<CR>\20<C-p><C-d><C-f>!:Telescope dap variables<CR>\20<C-p><C-d><C-v>(:Telescope dap list_breakpoints<CR>\20<C-p><C-d><C-b>%:Telescope dap configuration<CR>\20<C-p><C-d><C-c> :Telescope dap commands<CR>\20<C-p><C-d><C-d>\6n\15set_keymap\tnvim\bdap\19load_extension\14telescope\frequire\0", "config", "telescope-dap.nvim")
+time([[Config for telescope-dap.nvim]], false)
+-- Config for: toggletasks.nvim
+time([[Config for toggletasks.nvim]], true)
+try_loadstring("\27LJ\2\n‘\2\0\0\6\0\14\0!6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\1\0B\0\2\0016\0\5\0009\0\6\0'\2\a\0'\3\b\0'\4\t\0004\5\0\0B\0\5\0016\0\5\0009\0\6\0'\2\a\0'\3\n\0'\4\v\0004\5\0\0B\0\5\0016\0\5\0009\0\6\0'\2\a\0'\3\f\0'\4\r\0004\5\0\0B\0\5\1K\0\1\0$:Telescope toggletasks edit<CR>\15<C-t><C-e>%:Telescope toggletasks spawn<CR>\15<C-t><C-s>&:Telescope toggletasks select<CR>\15<C-t><C-t>\6n\15set_keymap\tnvim\19load_extension\14telescope\nsetup\16toggletasks\frequire\0", "config", "toggletasks.nvim")
+time([[Config for toggletasks.nvim]], false)
 -- Config for: onedark.nvim
 time([[Config for onedark.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\fonedark\frequire\0", "config", "onedark.nvim")
 time([[Config for onedark.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
