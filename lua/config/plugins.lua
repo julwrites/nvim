@@ -116,7 +116,16 @@ local function config(use)
           { "nvim-telescope/telescope.nvim", opt = true },
         },
         config = function()
-          require('toggletasks').setup()
+          require('toggletasks').setup {
+            search_paths = {
+              "toggletasks",
+              ".toggletasks",
+              ".nvim/toggletasks",
+              ".vscode/toggletasks",
+              ".vscode/tasks"
+            }
+          }
+
           require('telescope').load_extension('toggletasks')
           nvim.set_keymap("n", "<C-t><C-t>", ":Telescope toggletasks select<CR>", {})
           nvim.set_keymap("n", "<C-t><C-s>", ":Telescope toggletasks spawn<CR>", {})
@@ -139,6 +148,8 @@ local function config(use)
   use { "sindrets/diffview.nvim",
         requires = { "nvim-lua/plenary.nvim", opt = true }
       } -- Difftool
+
+  use "lervag/vimtex" -- LaTeX
 
   --------------------------------------------------------------------------------
   -- Software Development packages
@@ -302,6 +313,7 @@ local function config(use)
             "pyright",
             "tsserver",
             "volar",
+            "astro",
             "sourcekit",
             "rls",
             "ltex"
