@@ -308,7 +308,7 @@ local function config(use)
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
           for _, lsp in ipairs({
-            "sumneko_lua",
+            "lua_ls",
             "bashls",
             "pyright",
             "tsserver",
