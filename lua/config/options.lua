@@ -1,5 +1,6 @@
 function Config()
   local nvim = require "nvim"
+
   -- Display row number
   nvim.wo.number = true
   nvim.command(":set nowrap")
@@ -17,6 +18,8 @@ function Config()
   nvim.o.shiftwidth = 2
 
   nvim.g.completeopt = {'menu', 'menuone', 'noselect'}
+
+  nvim.g.loaded_perl_provider = 0
 end
 
 return { config = Config }
