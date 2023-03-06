@@ -11,7 +11,6 @@ local function ensure_packer()
   return false
 end
 
-
 local function config(use)
  --------------------------------------------------------------------------------
  -- Base packages
@@ -161,21 +160,35 @@ local function config(use)
   use "tpope/vim-commentary" -- Manipulate comments
 
   -- LSP
+
   use "neovim/nvim-lspconfig"
   use { "hrsh7th/cmp-nvim-lsp",
         requires = {
           { "neovim/nvim-lspconfig", opt = false }
         }
       }
+
   use { 'williamboman/mason.nvim',
         config = function()
           require("mason").setup()
         end
       }
   use { 'williamboman/mason-lspconfig.nvim',
+        requires = {
+          { 'williamboman/mason.nvim', opt = false }
+        },
         config = function()
           require("mason-lspconfig").setup {
-            ensure_installed = { "lua_ls", "rust_analyzer" },
+            ensure_installed = {
+              "lua_ls",
+              "bashls",
+              "pyright",
+              "tsserver",
+              "volar",
+              "astro",
+              "rust_analyzer",
+              "ltex",
+            }
           }
         end
       }
@@ -345,7 +358,7 @@ local function config(use)
             "sourcekit",
             "rls",
             "rust_analyzer",
-            "ltex"
+            "ltex",
           }) do
             lspconfig[lsp].setup {
               capabilities = capabilities
