@@ -167,6 +167,18 @@ local function config(use)
           { "neovim/nvim-lspconfig", opt = false }
         }
       }
+  use { 'williamboman/mason.nvim',
+        config = function()
+          require("mason").setup()
+        end
+      }
+  use { 'williamboman/mason-lspconfig.nvim',
+        config = function()
+          require("mason-lspconfig").setup {
+            ensure_installed = { "lua_ls", "rust_analyzer" },
+          }
+        end
+      }
 
   -- Snippets
   use "rafamadriz/friendly-snippets"
@@ -180,6 +192,22 @@ local function config(use)
       }
 
   -- Debug Adaptor Protocol
+  use { 'simrat39/rust-tools.nvim',
+        config = function()
+          local rt = require("rust-tools")
+          rt.setup( {
+            server = {
+              on_attach = function(_, bufnr)
+                -- Hover actions
+                nvim.set_keymap("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+                -- Code action groups
+                nvim.set_keymap("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+              end,
+            },
+          })
+        end
+      }
+
   use { "mfussenegger/nvim-dap",
         config = function()
 
@@ -190,8 +218,8 @@ local function config(use)
           nvim.set_keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", {})
           nvim.set_keymap("n", "<C-F11>", ":lua require'dap'.step_out()<CR>", {})
 
-          local debug = require("config.debug")
-          debug.load_configs()
+          -- local debug = require("config.debug")
+          -- debug.load_configs()
         end
       }
   use { "nvim-telescope/telescope-dap.nvim",
@@ -316,6 +344,7 @@ local function config(use)
             "astro",
             "sourcekit",
             "rls",
+            "rust_analyzer",
             "ltex"
           }) do
             lspconfig[lsp].setup {
@@ -333,7 +362,7 @@ function Update()
   local packer = require("packer")
 
   packer.init {
-            display = { non_interactive = false }, -- Silent install and update
+            display = { non_interactive = true }, -- Silent install and update
             profile = { enable = true } -- Enable profiling for package management
           }
 
