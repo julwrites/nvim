@@ -12,14 +12,10 @@ function bootstrap (user, repo)
     end
 end
 
-local nvim = require("nvim")
-
-if vim.loop.os_uname().sysname == "Darwin" then
-  nvim.g.python3_host_prog = "/usr/local/bin/python3"
-end
-
 print("Bootstrapping Nvim.lua")
 bootstrap("norcalli", "nvim.lua")
+
+local nvim = require("nvim")
 
 print("Bootstrapping Packer.nvim")
 bootstrap("wbthomason", "packer.nvim")
