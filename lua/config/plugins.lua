@@ -30,13 +30,16 @@ local function config(use)
  -- Interface packages
  --------------------------------------------------------------------------------
   use "ryanoasis/vim-devicons" -- Icons for file interaction
-  use "nvim-tree/nvim-web-devicons"
   use { "navarasu/onedark.nvim",
         config = function() require("onedark").load() end
       }
 
+  use "nvim-tree/nvim-web-devicons"
+
   use { "nvim-lualine/lualine.nvim",
-        requires = { "ryanoasis/vim-devicons", opt = true },
+        requires = {
+          { "nvim-tree/nvim-web-devicons", opt = true },
+        },
         config = function()
           require("lualine").setup {
             options = {
@@ -171,7 +174,8 @@ local function config(use)
   use { 'williamboman/mason.nvim',
         config = function()
           require("mason").setup()
-        end
+        end,
+        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
       }
   use { 'williamboman/mason-lspconfig.nvim',
         requires = {
@@ -366,6 +370,16 @@ local function config(use)
           end
         end
       }
+
+  use { "Exafunction/codeium.vim",
+        config = function ()
+          nvim.g.codeium_enabled = 0
+          vim.keymap.set("i", "<Tab><Tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+          vim.keymap.set("i", "<C-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
+          vim.keymap.set("i", "<C-:>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
+          vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+        end
+  }
 
 end
 
