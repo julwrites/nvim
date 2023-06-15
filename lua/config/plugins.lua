@@ -145,6 +145,11 @@ local function config(use)
          }}
         end
       } -- Local wiki
+  use { "michal-h21/vim-zettel",
+        requires = {
+          { "vimwiki/vimwiki", opt = true }
+        }
+      }
   use "wannesm/wmgraphviz.vim" -- Graphviz
 
   use { "sindrets/diffview.nvim",
