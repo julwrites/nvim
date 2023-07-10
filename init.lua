@@ -17,8 +17,8 @@ bootstrap("norcalli", "nvim.lua")
 
 local nvim = require("nvim")
 
-print("Bootstrapping Packer.nvim")
-bootstrap("wbthomason", "packer.nvim")
+print("Bootstrapping Lazy.nvim")
+bootstrap("folke", "lazy.nvim")
 
 local plug = require("config.plugins")
 plug.update()
