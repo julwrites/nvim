@@ -177,6 +177,9 @@ function Update()
         nvim.g.vimwiki_global_ext = 0
         nvim.set_keymap("n", "<BS>", ":VimwikiGoBacklink<CR>", {})
         nvim.set_keymap("n", "<Leader>bb", ":VimwikiBacklinks<CR>", {})
+        nvim.set_keymap("n", "<Leader>tt", ":VimwikiTable<CR>", {})
+        nvim.set_keymap("n", "<Leader>lt", ":VimwikiToggleListItem<CR>", {})
+        nvim.set_keymap("n", "<Leader>lr", ":VimwikiToggleRejectedListItem<CR>", {})
       end
     },
     "wannesm/wmgraphviz.vim", -- Graphviz
