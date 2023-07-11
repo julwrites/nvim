@@ -150,21 +150,33 @@ function Update()
     },
 
     -- Misc Tools
-    { "renerocksai/telekasten.nvim",
-      dependencies = {'nvim-telescope/telescope.nvim'},
-      config = function() 
-        require('telekasten').setup({
-          home = vim.fn.expand("~/julwrites/wiki"),
-        })
-        nvim.set_keymap("n", "<C-p><C-w>", ":Telekasten panel<CR>", {})
-        nvim.set_keymap("n", "<C-w><C-w>", ":Telekasten find_notes<CR>", {})
-        nvim.set_keymap("n", "<C-w><C-f>", ":Telekasten follow_link<CR>", {})
-        nvim.set_keymap("n", "<C-w><C-b>", ":Telekasten show_backlinks<CR>", {})
+    -- { "renerocksai/telekasten.nvim",
+    --   dependencies = {'nvim-telescope/telescope.nvim'},
+    --   config = function()
+    --     require('telekasten').setup({
+    --       home = vim.fn.expand("~/julwrites/wiki"),
+    --     })
+    --     nvim.set_keymap("n", "<C-p><C-w>", ":Telekasten panel<CR>", {})
+    --     nvim.set_keymap("n", "<C-w><C-w>", ":Telekasten find_notes<CR>", {})
+    --     nvim.set_keymap("n", "<C-w><C-f>", ":Telekasten follow_link<CR>", {})
+    --     nvim.set_keymap("n", "<C-w><C-b>", ":Telekasten show_backlinks<CR>", {})
 
-        vim.cmd("hi tkLink ctermfg=green cterm=bold,underline guifg=green gui=bold,underline")
-        vim.cmd("hi tkBrackets ctermfg=gray guifg=gray")
-        vim.cmd("hi tkTagSep ctermfg=gray guifg=gray")
-        vim.cmd("hi tkTag ctermfg=175 guifg=#d3869B")
+    --     vim.cmd("hi tkLink ctermfg=green cterm=bold,underline guifg=green gui=bold,underline")
+    --     vim.cmd("hi tkBrackets ctermfg=gray guifg=gray")
+    --     vim.cmd("hi tkTagSep ctermfg=gray guifg=gray")
+    --     vim.cmd("hi tkTag ctermfg=175 guifg=#d3869B")
+    --   end
+    -- },
+    { "vimwiki/vimwiki",
+      init = function()
+        nvim.g.vimwiki_list = {{
+          path = "~/julwrites/wiki",
+          syntax = "markdown",
+          ext = ".md"
+        }}
+        nvim.g.vimwiki_global_ext = 0
+        nvim.set_keymap("n", "<BS>", ":VimwikiGoBacklink<CR>", {})
+        nvim.set_keymap("n", "<Leader>bb", ":VimwikiBacklinks<CR>", {})
       end
     },
     "wannesm/wmgraphviz.vim", -- Graphviz
