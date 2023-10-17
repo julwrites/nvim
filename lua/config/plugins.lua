@@ -414,7 +414,7 @@ function Update()
     { "Exafunction/codeium.vim",
       config = function ()
         nvim.g.codeium_enabled = 0
-        vim.keymap.set("i", "<Tab><Tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+        vim.keymap.set("i", "<C-y>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
         vim.keymap.set("i", "<C-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
         vim.keymap.set("i", "<C-:>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
         vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
@@ -426,7 +426,7 @@ function Update()
       enabled = true,
       config = function ()
         nvim.g.tabby_server_url = "http://localhost:8080"
-        nvim.g.tabby_accept_binding = '<C-c>'
+        nvim.g.tabby_accept_binding = "<C-y>"
       end
     },
   }
