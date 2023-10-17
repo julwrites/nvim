@@ -420,6 +420,15 @@ function Update()
         vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
       end
     },
+
+    { "tabby",
+      dir = 'tabby/clients/vim',
+      enabled = true,
+      config = function ()
+        nvim.g.tabby_server_url = "http://localhost:8080"
+        nvim.g.tabby_accept_binding = '<C-c>'
+      end
+    },
   }
   )
 end
