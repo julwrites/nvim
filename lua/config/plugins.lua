@@ -185,7 +185,7 @@ function Update()
     },
     "wannesm/wmgraphviz.vim", -- Graphviz
     "godlygeek/tabular", 
-    "preservim/vim-markdown", -- Markdown
+    -- "preservim/vim-markdown", -- Markdown
 
     { "sindrets/diffview.nvim",
       dependencies = { "nvim-lua/plenary.nvim" }
