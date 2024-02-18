@@ -237,17 +237,6 @@ function Update()
       end
     },
 
-    -- Snippets
-    "rafamadriz/friendly-snippets",
-    { "L3MON4D3/LuaSnip",
-      dependencies = {
-        "rafamadriz/friendly-snippets"
-      },
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end
-    },
-
     -- Debug Adaptor Protocol
     { 'simrat39/rust-tools.nvim',
       config = function()
@@ -326,7 +315,6 @@ function Update()
     -- Completion
     { "hrsh7th/nvim-cmp",
       dependencies = {
-        "L3MON4D3/LuaSnip",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -421,14 +409,36 @@ function Update()
       end
     },
 
-    { "tabby",
-      dir = 'tabby/clients/vim',
-      enabled = true,
-      config = function ()
-        nvim.g.tabby_server_url = "http://localhost:8080"
-        nvim.g.tabby_accept_binding = "<C-y>"
-      end
-    },
+    { "nomnivore/ollama.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+      },
+
+      -- All the user commands added by the plugin
+      cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+
+      keys = {
+        -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
+        {
+          "<leader>oo",
+          ":<c-u>lua require('ollama').prompt()<cr>",
+          desc = "ollama prompt",
+          mode = { "n", "v" },
+        },
+
+        -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
+        {
+          "<leader>oG",
+          ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+          desc = "ollama Generate Code",
+          mode = { "n", "v" },
+        },
+      },
+
+      opts = {
+        model = "swellama:latest"
+      }
+    }
   }
   )
 end
