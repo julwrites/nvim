@@ -38,10 +38,14 @@ function Update()
             width = 100,
           },
           filters = { 
+            enable = true,
             dotfiles = false,
+            git_ignored = false,
             git_clean = false,
             no_buffer = false,
+            no_bookmark = false,
             custom = { 'node_modules' },
+            exclude = {},
           }
         }
         nvim.set_keymap("n", "<C-n><C-n>", ":NvimTreeToggle<CR>", {})
