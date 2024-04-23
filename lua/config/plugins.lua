@@ -3,9 +3,12 @@ nvim = require "nvim" -- Ignore warning here, better to define once for the whol
 function Update()
   -- Lazy.nvim
   require("lazy").setup({
+    --- Base plugins, used for language or UI setup in other plugins
+
     { "navarasu/onedark.nvim",
         config = function() require("onedark").load() end
     },
+
     "norcalli/nvim.lua", -- Lua functions for nvim
     "nvim-lua/plenary.nvim", -- Lua functions, very useful for a lot of lua-based plugins
     "MunifTanjim/nui.nvim", -- UI for Neovim
@@ -23,10 +26,9 @@ function Update()
     { "navarasu/onedark.nvim",
       config = function() require("onedark").load() end
     },
-
     "nvim-tree/nvim-web-devicons",
 
-    { "nvim-tree/nvim-tree.lua",
+    { "nvim-tree/nvim-tree.lua", -- File explorer
       version = "*",
       lazy = false,
       dependencies = {
@@ -35,7 +37,7 @@ function Update()
       config = function()
         require("nvim-tree").setup {
           view = {
-            width = 100,
+            width = 70,
           },
           filters = { 
             enable = true,
@@ -54,7 +56,7 @@ function Update()
       end,
     },
 
-    { "nvim-lualine/lualine.nvim",
+    { "nvim-lualine/lualine.nvim", -- Status line
       dependencies = {
         "nvim-tree/nvim-web-devicons"
       },
@@ -72,15 +74,7 @@ function Update()
       end
     },
 
-    { "ibhagwan/fzf-lua",
-      -- optional for icon support
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      config = function()
-        -- calling `setup` is optional for customization
-        require("fzf-lua").setup({})
-      end
-    },
-
+    -- Fuzzy interface
     { "nvim-telescope/telescope.nvim",
       config = function()
         -- Chords (Ivy)
@@ -99,7 +93,15 @@ function Update()
         nvim.set_keymap("n", "<C-p><C-m>", ":Telescope oldfiles<CR>", {})
         nvim.set_keymap("n", "<C-p><C-k>", ":Telescope keymaps<CR>", {})
       end
-    }, -- Fuzzy finder
+    },
+    { "ibhagwan/fzf-lua", -- Fuzzy search
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        -- calling `setup` is optional for customization
+        require("fzf-lua").setup({})
+      end
+    },
     { "nvim-telescope/telescope-media-files.nvim",
       config = function()
         require('telescope').load_extension('media_files')
@@ -136,7 +138,7 @@ function Update()
     -- Utility packages
     --------------------------------------------------------------------------------
 
-    { "akinsho/toggleterm.nvim",
+    { "akinsho/toggleterm.nvim", -- Terminal
       opts = {
         tag = '*',
       },
@@ -177,6 +179,17 @@ function Update()
       end
     },
 
+    -- Docker
+    {
+      "mgierada/lazydocker.nvim",
+      dependencies = { "akinsho/toggleterm.nvim" },
+      config = function() 
+        require("lazydocker").setup {} 
+        nvim.set_keymap("n", "<C-d><C-d>", ":Lazydocker<CR>", {})
+      end,
+      event = "VeryLazy", -- or any other event you might want to use.
+    },
+
     -- Misc Tools
     -- { "renerocksai/telekasten.nvim",
     --   dependencies = {'nvim-telescope/telescope.nvim'},
@@ -195,7 +208,8 @@ function Update()
     --     vim.cmd("hi tkTag ctermfg=175 guifg=#d3869B")
     --   end
     -- },
-    { "vimwiki/vimwiki",
+    
+    { "vimwiki/vimwiki", -- Wiki
       init = function()
         nvim.g.vimwiki_list = {{
           path = "~/julwrites/wiki",
@@ -211,6 +225,7 @@ function Update()
         nvim.set_keymap("n", "<Leader>lr", ":VimwikiToggleRejectedListItem<CR>", {})
       end
     },
+
     "wannesm/wmgraphviz.vim", -- Graphviz
     "godlygeek/tabular", 
     -- "preservim/vim-markdown", -- Markdown
@@ -226,9 +241,29 @@ function Update()
     --------------------------------------------------------------------------------
 
     -- Git
-    "tpope/vim-fugitive", -- Git manipulation
+
+    -- "tpope/vim-fugitive", -- Git manipulation
     "tpope/vim-surround", -- Use `S<?>` to surround a visual selection with `<?>`
     "tpope/vim-commentary", -- Manipulate comments
+
+    { "kdheepak/lazygit.nvim",
+    	cmd = {
+    		"LazyGit",
+    		"LazyGitConfig",
+    		"LazyGitCurrentFile",
+    		"LazyGitFilter",
+    		"LazyGitFilterCurrentFile",
+    	},
+      -- optional for floating window border decoration
+      dependencies = {
+          "nvim-lua/plenary.nvim",
+      },
+      -- setting the keybinding for LazyGit with 'keys' is recommended in
+      -- order to load the plugin when the command is run for the first time
+      keys = {
+         { "<C-g><C-g>", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" }
+      }
+    }, -- GitUI
 
     -- LSP
 
@@ -336,11 +371,11 @@ function Update()
       end
     },
 
+    -- Completion
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
 
-    -- Completion
     { "hrsh7th/nvim-cmp",
       dependencies = {
         "hrsh7th/cmp-nvim-lsp",
@@ -427,6 +462,7 @@ function Update()
       end
     },
 
+    -- GenAI Tools
     { "Exafunction/codeium.vim",
       config = function ()
         nvim.g.codeium_enabled = 0
