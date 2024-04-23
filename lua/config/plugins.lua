@@ -26,6 +26,27 @@ function Update()
 
     "nvim-tree/nvim-web-devicons",
 
+    { "nvim-tree/nvim-tree.lua",
+      version = "*",
+      lazy = false,
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("nvim-tree").setup {
+          view = {
+            width = 100,
+          },
+          filters = { 
+            dotfiles = true,
+          }
+        }
+        nvim.set_keymap("n", "<C-n><C-n>", ":NvimTreeToggle<CR>", {})
+        nvim.set_keymap("n", "<C-n><C-f>", ":NvimTreeFocus<CR>", {})
+        nvim.set_keymap("n", "<C-n><C-t>", ":NvimTreeFindFile<CR>", {})
+      end,
+    },
+
     { "nvim-lualine/lualine.nvim",
       dependencies = {
         "nvim-tree/nvim-web-devicons"

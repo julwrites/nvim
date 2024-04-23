@@ -20,6 +20,9 @@ function Config()
   nvim.g.completeopt = {'menu', 'menuone', 'noselect'}
 
   nvim.g.loaded_perl_provider = 0
+
+  nvim.g.loaded_netrw = 1
+  nvim.g.loaded_netrwPlugin = 1
 end
 
 return { config = Config }
