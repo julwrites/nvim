@@ -244,7 +244,7 @@ function Update()
 
     -- "tpope/vim-fugitive", -- Git manipulation
     "tpope/vim-surround", -- Use `S<?>` to surround a visual selection with `<?>`
-    "tpope/vim-commentary", -- Manipulate comments
+    -- "tpope/vim-commentary", -- Manipulate comments
 
     { "kdheepak/lazygit.nvim",
     	cmd = {
@@ -266,6 +266,13 @@ function Update()
     }, -- GitUI
 
     -- LSP
+
+    {
+      'numToStr/Comment.nvim',
+      opts = {
+      },
+      lazy = false,
+    },
 
     "neovim/nvim-lspconfig",
     { "hrsh7th/cmp-nvim-lsp",
