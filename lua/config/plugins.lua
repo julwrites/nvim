@@ -190,25 +190,6 @@ function Update()
       event = "VeryLazy", -- or any other event you might want to use.
     },
 
-    -- Misc Tools
-    -- { "renerocksai/telekasten.nvim",
-    --   dependencies = {'nvim-telescope/telescope.nvim'},
-    --   config = function()
-    --     require('telekasten').setup({
-    --       home = vim.fn.expand("~/julwrites/wiki"),
-    --     })
-    --     nvim.set_keymap("n", "<C-p><C-w>", ":Telekasten panel<CR>", {})
-    --     nvim.set_keymap("n", "<C-w><C-w>", ":Telekasten find_notes<CR>", {})
-    --     nvim.set_keymap("n", "<C-w><C-f>", ":Telekasten follow_link<CR>", {})
-    --     nvim.set_keymap("n", "<C-w><C-b>", ":Telekasten show_backlinks<CR>", {})
-
-    --     vim.cmd("hi tkLink ctermfg=green cterm=bold,underline guifg=green gui=bold,underline")
-    --     vim.cmd("hi tkBrackets ctermfg=gray guifg=gray")
-    --     vim.cmd("hi tkTagSep ctermfg=gray guifg=gray")
-    --     vim.cmd("hi tkTag ctermfg=175 guifg=#d3869B")
-    --   end
-    -- },
-    
     { "vimwiki/vimwiki", -- Wiki
       init = function()
         nvim.g.vimwiki_list = {{
@@ -226,9 +207,20 @@ function Update()
       end
     },
 
+    { "axieax/urlview.nvim",
+      config = function()
+        require("urlview").setup({
+          default_picker = "telescope",
+          default_action = "system"
+        })
+
+        nvim.set_keymap("n", "<C-p><C-u>", ":UrlView<CR>", { desc = "View buffer URLs" })
+        nvim.set_keymap("n", "<C-p><C-u><C-p>", ":UrlView packer<CR>", { desc = "View Packer plugin URLs" })
+      end
+    },
+
     "wannesm/wmgraphviz.vim", -- Graphviz
     "godlygeek/tabular", 
-    -- "preservim/vim-markdown", -- Markdown
 
     { "sindrets/diffview.nvim",
       dependencies = { "nvim-lua/plenary.nvim" }
@@ -479,6 +471,39 @@ function Update()
         vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
       end
     },
+
+
+    { "nomnivore/ollama.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+      },
+
+      -- All the user commands added by the plugin
+      cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+
+      keys = {
+        -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
+        {
+          "<C-o><C-o>",
+          ":<c-u>lua require('ollama').prompt()<cr>",
+          desc = "ollama prompt",
+          mode = { "n", "v" },
+        },
+
+        -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
+        {
+          "<C-o><C-c>",
+          ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+          desc = "ollama Generate Code",
+          mode = { "n", "v" },
+        },
+      },
+
+      opts = {
+        model = "julstral:latest"
+      }
+    }
+
   }
   )
 end
