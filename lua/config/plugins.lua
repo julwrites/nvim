@@ -81,7 +81,6 @@ function Update()
         nvim.set_keymap("n", "<C-f><C-f>", ":Telescope current_buffer_fuzzy_find theme=ivy<CR>", {})
         nvim.set_keymap("n", "<C-f><C-g>", ":Telescope live_grep theme=ivy<CR>", {})
         nvim.set_keymap("n", "<C-p><C-f>", ":Telescope find_files theme=ivy<CR>", {})
-        nvim.set_keymap("n", "<C-p><C-g>", ":Telescope git_files theme=ivy<CR>", {})
         -- Chords (Dropdown)
         nvim.set_keymap("n", "<C-g><C-s>", ":Telescope git_status theme=dropdown<CR>", {})
         nvim.set_keymap("n", "<C-g><C-b>", ":Telescope git_branches theme=dropdown<CR>", {})
@@ -185,7 +184,7 @@ function Update()
       dependencies = { "akinsho/toggleterm.nvim" },
       config = function() 
         require("lazydocker").setup {} 
-        nvim.set_keymap("n", "<C-d><C-d>", ":Lazydocker<CR>", {})
+        nvim.set_keymap("n", "<C-l><C-d>", ":Lazydocker<CR>", {})
       end,
       event = "VeryLazy", -- or any other event you might want to use.
     },
@@ -253,7 +252,7 @@ function Update()
       -- setting the keybinding for LazyGit with 'keys' is recommended in
       -- order to load the plugin when the command is run for the first time
       keys = {
-         { "<C-g><C-g>", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" }
+         { "<C-l><C-g>", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" }
       }
     }, -- GitUI
 
