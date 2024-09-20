@@ -477,7 +477,7 @@ function Update()
               adapter = "anthropic",
             },
             inline = {
-              adapter = "anthropic",
+              adapter = "mistral",
             },
             agent = {
               adapter = "anthropic",
@@ -488,6 +488,22 @@ function Update()
               return require("codecompanion.adapters").extend("anthropic", {
                 env = {
                   api_key = "ANTHROPIC_API_KEY"
+                },
+              })
+            end,
+            mistral = function()
+              return require("codecompanion.adapters").extend("ollama", {
+                name = "mistral", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                schema = {
+                  model = {
+                    default = "mistral:7b",
+                  },
+                  num_ctx = {
+                    default = 16384,
+                  },
+                  num_predict = {
+                    default = -1,
+                  },
                 },
               })
             end,
