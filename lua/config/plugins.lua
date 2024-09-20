@@ -461,50 +461,41 @@ function Update()
     },
 
     -- GenAI Tools
-    { "Exafunction/codeium.vim",
-      config = function ()
-        nvim.g.codeium_enabled = 0
-        vim.keymap.set("i", "<C-y>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
-        vim.keymap.set("i", "<C-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-        vim.keymap.set("i", "<C-:>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-        vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-      end
-    },
-
-
-    { "nomnivore/ollama.nvim",
+    {
+      "olimorris/codecompanion.nvim",
       dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+        "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+        { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves the default Neovim UI
       },
-
-      -- All the user commands added by the plugin
-      cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
-
-      keys = {
-        -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
-        {
-          "<C-o><C-o>",
-          ":<c-u>lua require('ollama').prompt()<cr>",
-          desc = "ollama prompt",
-          mode = { "n", "v" },
-        },
-
-        -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
-        {
-          "<C-o><C-c>",
-          ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
-          desc = "ollama Generate Code",
-          mode = { "n", "v" },
-        },
-      },
-
-      opts = {
-        model = "julstral:latest"
-      }
+      config = function() 
+        require("codecompanion").setup({
+          strategies = {
+            chat = {
+              adapter = "anthropic",
+            },
+            inline = {
+              adapter = "anthropic",
+            },
+            agent = {
+              adapter = "anthropic",
+            },
+          },
+          adapters = {
+            anthropic = function()
+              return require("codecompanion.adapters").extend("anthropic", {
+                env = {
+                  api_key = "ANTHROPIC_API_KEY"
+                },
+              })
+            end,
+          }
+        })
+      end
     }
-
-  }
-  )
+  })
 end
 
 return { update = Update }
