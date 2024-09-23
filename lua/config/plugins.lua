@@ -118,18 +118,15 @@ function Update()
       end
     },
     { "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
       config = function()
-        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-        ts_update()
-
-        require("nvim-treesitter.configs").setup({
-          ensure_installed = { "markdown", "markdown_inline" },
-          highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = { "markdown" },
-          },
+        require("lazy").setup({
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },
         })
-      end,
+      end
     },
     "BurntSushi/ripgrep", -- Regex search
 
@@ -288,7 +285,7 @@ function Update()
             "lua_ls",
             "bashls",
             "pyright",
-            "tsserver",
+            "ts_ls",
             "volar",
             "astro",
             "rust_analyzer",
