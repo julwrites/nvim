@@ -175,12 +175,33 @@ function Update()
       end
     },
 
+    -- Remote access
+    {
+       "amitds1997/remote-nvim.nvim",
+       version = "*", -- Pin to GitHub releases
+       dependencies = {
+           "nvim-lua/plenary.nvim", -- For standard functions
+           "MunifTanjim/nui.nvim", -- To build the plugin UI
+           "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+       },
+       config = function()
+          require("remote-nvim").setup({
+            client_callback = function(port, _)
+              local cmd = ("neovide --server localhost:%s"):format(port)
+              vim.fn.jobstart(cmd, {
+                detach = true
+              })
+            end
+          })
+      end,
+    },
+
     -- Docker
     {
       "mgierada/lazydocker.nvim",
       dependencies = { "akinsho/toggleterm.nvim" },
-      config = function() 
-        require("lazydocker").setup {} 
+      config = function()
+        require("lazydocker").setup {}
         nvim.set_keymap("n", "<C-l><C-d>", ":Lazydocker<CR>", {})
       end,
       event = "VeryLazy", -- or any other event you might want to use.
@@ -230,9 +251,9 @@ function Update()
 
     -- Git
 
-    -- "tpope/vim-fugitive", -- Git manipulation
+    "tpope/vim-fugitive", -- Git manipulation
     "tpope/vim-surround", -- Use `S<?>` to surround a visual selection with `<?>`
-    -- "tpope/vim-commentary", -- Manipulate comments
+    "tpope/vim-commentary", -- Manipulate comments
 
     { "kdheepak/lazygit.nvim",
     	cmd = {
