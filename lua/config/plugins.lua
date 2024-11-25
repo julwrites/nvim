@@ -283,13 +283,6 @@ function Update()
       lazy = false,
     },
 
-    "neovim/nvim-lspconfig",
-    { "hrsh7th/cmp-nvim-lsp",
-      dependencies = {
-        "neovim/nvim-lspconfig"
-      }
-    },
-
     { 'williamboman/mason.nvim',
       config = function()
         require("mason").setup()
@@ -306,6 +299,7 @@ function Update()
             "lua_ls",
             "bashls",
             "pyright",
+            "clangd",
             "ts_ls",
             "volar",
             "astro",
@@ -313,6 +307,34 @@ function Update()
             "ltex",
           }
         }
+      end
+    },
+
+    { "neovim/nvim-lspconfig",
+      dependencies = {
+        'williamboman/mason-lspconfig.nvim'
+      }
+    },
+    { "hrsh7th/cmp-nvim-lsp",
+      dependencies = {
+        "neovim/nvim-lspconfig"
+      }
+    },
+
+    { "stevearc/conform.nvim",
+      opts = {},
+      config = function()
+        require("conform").setup({
+          formatters_by_ft = {
+            lua = { "stylua" },
+            -- Conform will run multiple formatters sequentially
+            python = { "isort", "black" },
+            -- You can customize some of the format options for the filetype (:help conform.format)
+            rust = { "rustfmt", lsp_format = "fallback" },
+            -- Conform will run the first available formatter
+            javascript = { "prettierd", "prettier", stop_after_first = true },
+          },
+        })
       end
     },
 
