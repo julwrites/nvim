@@ -5,14 +5,16 @@ function Update()
   require("lazy").setup({
     --- Base plugins, used for language or UI setup in other plugins
 
-    { "navarasu/onedark.nvim",
-        config = function() require("onedark").load() end
+    {
+      "navarasu/onedark.nvim",
+      config = function() require("onedark").load() end
     },
 
-    "norcalli/nvim.lua", -- Lua functions for nvim
+    "norcalli/nvim.lua",     -- Lua functions for nvim
     "nvim-lua/plenary.nvim", -- Lua functions, very useful for a lot of lua-based plugins
-    "MunifTanjim/nui.nvim", -- UI for Neovim
-    { "arsham/arshlib.nvim",
+    "MunifTanjim/nui.nvim",  -- UI for Neovim
+    {
+      "arsham/arshlib.nvim",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim"
@@ -23,12 +25,14 @@ function Update()
     -- Interface packages
     --------------------------------------------------------------------------------
     "ryanoasis/vim-devicons", -- Icons for file interaction
-    { "navarasu/onedark.nvim",
+    {
+      "navarasu/onedark.nvim",
       config = function() require("onedark").load() end
     },
     "nvim-tree/nvim-web-devicons",
 
-    { "nvim-tree/nvim-tree.lua", -- File explorer
+    {
+      "nvim-tree/nvim-tree.lua", -- File explorer
       version = "*",
       lazy = false,
       dependencies = {
@@ -39,7 +43,7 @@ function Update()
           view = {
             width = 70,
           },
-          filters = { 
+          filters = {
             enable = true,
             dotfiles = false,
             git_ignored = false,
@@ -56,7 +60,8 @@ function Update()
       end,
     },
 
-    { "nvim-lualine/lualine.nvim", -- Status line
+    {
+      "nvim-lualine/lualine.nvim", -- Status line
       dependencies = {
         "nvim-tree/nvim-web-devicons"
       },
@@ -75,7 +80,8 @@ function Update()
     },
 
     -- Fuzzy interface
-    { "nvim-telescope/telescope.nvim",
+    {
+      "nvim-telescope/telescope.nvim",
       config = function()
         -- Chords (Ivy)
         nvim.set_keymap("n", "<C-f><C-f>", ":Telescope current_buffer_fuzzy_find theme=ivy<CR>", {})
@@ -93,7 +99,8 @@ function Update()
         nvim.set_keymap("n", "<C-p><C-k>", ":Telescope keymaps<CR>", {})
       end
     },
-    { "ibhagwan/fzf-lua", -- Fuzzy search
+    {
+      "ibhagwan/fzf-lua", -- Fuzzy search
       -- optional for icon support
       dependencies = { "nvim-tree/nvim-web-devicons" },
       config = function()
@@ -101,15 +108,16 @@ function Update()
         require("fzf-lua").setup({})
       end
     },
-    { "nvim-telescope/telescope-media-files.nvim",
+    {
+      "nvim-telescope/telescope-media-files.nvim",
       config = function()
         require('telescope').load_extension('media_files')
-        require'telescope'.setup {
+        require 'telescope'.setup {
           extensions = {
             media_files = {
               -- filetypes whitelist
               -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-              filetypes = {"png", "webp", "jpg", "jpeg"},
+              filetypes = { "png", "webp", "jpg", "jpeg" },
               -- find command (defaults to `fd`)
               find_cmd = "rg"
             }
@@ -117,11 +125,12 @@ function Update()
         }
       end
     },
-    { "nvim-treesitter/nvim-treesitter",
+    {
+      "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       config = function()
         require("lazy").setup({
-          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "http" },
           sync_install = false,
           highlight = { enable = true },
           indent = { enable = true },
@@ -134,7 +143,8 @@ function Update()
     -- Utility packages
     --------------------------------------------------------------------------------
 
-    { "akinsho/toggleterm.nvim", -- Terminal
+    {
+      "akinsho/toggleterm.nvim", -- Terminal
       opts = {
         tag = '*',
       },
@@ -151,7 +161,8 @@ function Update()
     },
 
     -- Task runner
-    { "jedrzejboczar/toggletasks.nvim",
+    {
+      "jedrzejboczar/toggletasks.nvim",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "akinsho/toggleterm.nvim",
@@ -177,22 +188,22 @@ function Update()
 
     -- Remote access
     {
-       "amitds1997/remote-nvim.nvim",
-       version = "*", -- Pin to GitHub releases
-       dependencies = {
-           "nvim-lua/plenary.nvim", -- For standard functions
-           "MunifTanjim/nui.nvim", -- To build the plugin UI
-           "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
-       },
-       config = function()
-          require("remote-nvim").setup({
-            client_callback = function(port, _)
-              local cmd = ("neovide --server localhost:%s"):format(port)
-              vim.fn.jobstart(cmd, {
-                detach = true
-              })
-            end
-          })
+      "amitds1997/remote-nvim.nvim",
+      version = "*",                     -- Pin to GitHub releases
+      dependencies = {
+        "nvim-lua/plenary.nvim",         -- For standard functions
+        "MunifTanjim/nui.nvim",          -- To build the plugin UI
+        "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+      },
+      config = function()
+        require("remote-nvim").setup({
+          client_callback = function(port, _)
+            local cmd = ("neovide --server localhost:%s"):format(port)
+            vim.fn.jobstart(cmd, {
+              detach = true
+            })
+          end
+        })
       end,
     },
 
@@ -207,13 +218,14 @@ function Update()
       event = "VeryLazy", -- or any other event you might want to use.
     },
 
-    { "vimwiki/vimwiki", -- Wiki
+    {
+      "vimwiki/vimwiki", -- Wiki
       init = function()
-        nvim.g.vimwiki_list = {{
+        nvim.g.vimwiki_list = { {
           path = "~/julwrites/wiki",
           syntax = "markdown",
           ext = ".md"
-        }}
+        } }
         nvim.g.vimwiki_global_ext = 0
         nvim.set_keymap("n", "<BS>", ":VimwikiGoBacklink<CR>", {})
         nvim.set_keymap("n", "<Leader>ww", ":VimwikiIndex<CR>", {})
@@ -224,7 +236,9 @@ function Update()
       end
     },
 
-    { "axieax/urlview.nvim",
+    -- URL Viewing
+    {
+      "axieax/urlview.nvim",
       config = function()
         require("urlview").setup({
           default_picker = "telescope",
@@ -236,12 +250,25 @@ function Update()
       end
     },
 
-    "wannesm/wmgraphviz.vim", -- Graphviz
-    "godlygeek/tabular", 
+    -- HTTP Request Scratchpad
+    {
+      "rest-nvim/rest.nvim",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+          opts.ensure_installed = opts.ensure_installed or {}
+          table.insert(opts.ensure_installed, "http")
+        end,
+      }
+    },
 
-    { "sindrets/diffview.nvim",
+    "wannesm/wmgraphviz.vim", -- Graphviz
+    "godlygeek/tabular",
+
+    {
+      "sindrets/diffview.nvim",
       dependencies = { "nvim-lua/plenary.nvim" }
-    }, -- Difftool
+    },               -- Difftool
 
     "lervag/vimtex", -- LaTeX
 
@@ -251,26 +278,27 @@ function Update()
 
     -- Git
 
-    "tpope/vim-fugitive", -- Git manipulation
-    "tpope/vim-surround", -- Use `S<?>` to surround a visual selection with `<?>`
+    "tpope/vim-fugitive",   -- Git manipulation
+    "tpope/vim-surround",   -- Use `S<?>` to surround a visual selection with `<?>`
     "tpope/vim-commentary", -- Manipulate comments
 
-    { "kdheepak/lazygit.nvim",
-    	cmd = {
-    		"LazyGit",
-    		"LazyGitConfig",
-    		"LazyGitCurrentFile",
-    		"LazyGitFilter",
-    		"LazyGitFilterCurrentFile",
-    	},
+    {
+      "kdheepak/lazygit.nvim",
+      cmd = {
+        "LazyGit",
+        "LazyGitConfig",
+        "LazyGitCurrentFile",
+        "LazyGitFilter",
+        "LazyGitFilterCurrentFile",
+      },
       -- optional for floating window border decoration
       dependencies = {
-          "nvim-lua/plenary.nvim",
+        "nvim-lua/plenary.nvim",
       },
       -- setting the keybinding for LazyGit with 'keys' is recommended in
       -- order to load the plugin when the command is run for the first time
       keys = {
-         { "<C-l><C-g>", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" }
+        { "<C-l><C-g>", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" }
       }
     }, -- GitUI
 
@@ -283,13 +311,15 @@ function Update()
       lazy = false,
     },
 
-    { 'williamboman/mason.nvim',
+    {
+      'williamboman/mason.nvim',
       config = function()
         require("mason").setup()
       end,
       run = ":MasonUpdate" -- :MasonUpdate updates registry contents
     },
-    { 'williamboman/mason-lspconfig.nvim',
+    {
+      'williamboman/mason-lspconfig.nvim',
       dependencies = {
         'williamboman/mason.nvim'
       },
@@ -310,18 +340,21 @@ function Update()
       end
     },
 
-    { "neovim/nvim-lspconfig",
+    {
+      "neovim/nvim-lspconfig",
       dependencies = {
         'williamboman/mason-lspconfig.nvim'
       }
     },
-    { "hrsh7th/cmp-nvim-lsp",
+    {
+      "hrsh7th/cmp-nvim-lsp",
       dependencies = {
         "neovim/nvim-lspconfig"
       }
     },
 
-    { "stevearc/conform.nvim",
+    {
+      "stevearc/conform.nvim",
       opts = {},
       config = function()
         require("conform").setup({
@@ -341,10 +374,11 @@ function Update()
     },
 
     -- Debug Adaptor Protocol
-    { 'simrat39/rust-tools.nvim',
+    {
+      'simrat39/rust-tools.nvim',
       config = function()
         local rt = require("rust-tools")
-        rt.setup( {
+        rt.setup({
           server = {
             on_attach = function(_, bufnr)
               -- Hover actions
@@ -357,9 +391,9 @@ function Update()
       end
     },
 
-    { "mfussenegger/nvim-dap",
+    {
+      "mfussenegger/nvim-dap",
       config = function()
-
         nvim.set_keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", {})
         nvim.set_keymap("n", "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", {})
         nvim.set_keymap("n", "<C-F9>", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {})
@@ -371,7 +405,8 @@ function Update()
         -- debug.load_configs()
       end
     },
-    { "nvim-telescope/telescope-dap.nvim",
+    {
+      "nvim-telescope/telescope-dap.nvim",
       dependencies = {
         "mfussenegger/nvim-dap",
         "nvim-telescope/telescope.nvim"
@@ -386,7 +421,8 @@ function Update()
         nvim.set_keymap("n", "<C-p><C-d><C-f>", ":Telescope dap frames<CR>", {})
       end
     },
-    { "rcarriga/nvim-dap-ui",
+    {
+      "rcarriga/nvim-dap-ui",
       dependencies = {
         "mfussenegger/nvim-dap"
       },
@@ -394,7 +430,8 @@ function Update()
         nvim.set_keymap("n", "<C-p><C-d>", ":lua require'dapui'.toggle()<CR>", {})
       end
     },
-    { "rcarriga/cmp-dap",
+    {
+      "rcarriga/cmp-dap",
       config = function()
         require("cmp").setup({
           enabled = function()
@@ -416,7 +453,8 @@ function Update()
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
 
-    { "hrsh7th/nvim-cmp",
+    {
+      "hrsh7th/nvim-cmp",
       dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -424,7 +462,7 @@ function Update()
         "hrsh7th/cmp-cmdline"
       },
       config = function()
-        local cmp = require'cmp'
+        local cmp = require 'cmp'
 
         cmp.setup({
           snippet = {
@@ -508,11 +546,11 @@ function Update()
       dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-        "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+        "hrsh7th/nvim-cmp",                      -- Optional: For using slash commands and variables in the chat buffer
+        "nvim-telescope/telescope.nvim",         -- Optional: For using slash commands
         { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves the default Neovim UI
       },
-      config = function() 
+      config = function()
         require("codecompanion").setup({
           strategies = {
             chat = {
