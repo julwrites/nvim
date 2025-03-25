@@ -555,9 +555,18 @@ function Update()
           strategies = {
             chat = {
               adapter = "anthropic",
+              tools = {
+                ["mcp"] = {
+                  callback = function() return require("mcphub.extensions.codecompanion") end,
+                  description = "Call tools and resources from the MCP Servers",
+                  opts = {
+                    requires_approval = true,
+                  }
+                }
+              }
             },
             inline = {
-              adapter = "mistral",
+              adapter = "ollama",
             },
             agent = {
               adapter = "anthropic",
@@ -569,14 +578,22 @@ function Update()
                 env = {
                   api_key = "ANTHROPIC_API_KEY"
                 },
+                schema = {
+                  model = {
+                    default = "claude-3.5-sonnet"
+                  }
+                }
               })
             end,
             mistral = function()
               return require("codecompanion.adapters").extend("ollama", {
-                name = "mistral", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                name = "ollama", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                env = {
+                  url = "https://ollama.tehj.sh"
+                },
                 schema = {
                   model = {
-                    default = "mistral:7b",
+                    default = "qwen2.5:7b",
                   },
                   num_ctx = {
                     default = 16384,
@@ -590,7 +607,38 @@ function Update()
           }
         })
       end
+    },
+
+    {
+      "ravitemer/mcphub.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
+      },
+      -- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
+      build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+      config = function()
+        require("mcphub").setup({
+          -- Required options
+          port = 3000,                                               -- Port for MCP Hub server
+          config = vim.fn.expand("~/julwrites/mcp/mcpservers.json"), -- Absolute path to config file
+
+          -- Optional options
+          on_ready = function(hub)
+            -- Called when hub is ready
+          end,
+          on_error = function(err)
+            -- Called on errors
+          end,
+          log = {
+            level = vim.log.levels.WARN,
+            to_file = false,
+            file_path = nil,
+            prefix = "MCPHub"
+          },
+        })
+      end
     }
+
   })
 end
 
