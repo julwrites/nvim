@@ -580,7 +580,7 @@ function Update()
                 },
                 schema = {
                   model = {
-                    default = "claude-3.5-sonnet"
+                    default = "claude-3-5-sonnet-latest"
                   }
                 }
               })
