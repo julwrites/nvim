@@ -645,13 +645,19 @@ function Update()
             end,
           }
         })
+        nvim.set_keymap("n", "<leader>ct", ":CodeCompanionChat<CR>", {})
       end
     },
 
     {
       "dlants/magenta.nvim",
       lazy = false, -- you could also bind to <leader>mt
-      build = "npm install --frozen-lockfile",
+      build = function()
+        -- Avoid timeout issues by using a shell script approach
+        local install_cmd = "cd " ..
+            vim.fn.stdpath("data") .. "/lazy/magenta.nvim && npm install --frozen-lockfile --no-fund --loglevel=error"
+        vim.fn.system(install_cmd)
+      end,
       opts = {},
     },
 
