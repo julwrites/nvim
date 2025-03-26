@@ -16,8 +16,9 @@ function Config()
   nvim.o.expandtab = true
   nvim.o.tabstop = 2
   nvim.o.shiftwidth = 2
+  nvim.o.conceallevel = 2
 
-  nvim.g.completeopt = {'menu', 'menuone', 'noselect'}
+  nvim.g.completeopt = { 'menu', 'menuone', 'noselect' }
 
   nvim.g.loaded_perl_provider = 0
 
