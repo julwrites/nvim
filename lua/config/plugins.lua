@@ -161,33 +161,6 @@ function Update()
       end
     },
 
-    -- Obsidian
-    {
-      "epwalsh/obsidian.nvim",
-      version = "*", -- recommended, use latest release instead of latest commit
-      lazy = true,
-      ft = "markdown",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
-      opts = {
-        workspaces = {
-          {
-            name = "SET Personal",
-            path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Julian's R&D Knowledge Graph"
-          },
-          {
-            name = "SET R&D Team",
-            path = "~/Library/Mobile Documents/com~apple~CloudDocs/SET R&D Shared",
-          },
-          {
-            name = "SET R&D Confidential",
-            path = "~/Library/Mobile Documents/com~apple~CloudDocs/SET Confidential",
-          },
-        },
-      },
-    },
-
     -- Task runner
     {
       "jedrzejboczar/toggletasks.nvim",
@@ -624,7 +597,7 @@ function Update()
                 }
               })
             end,
-            mistral = function()
+            ollama = function()
               return require("codecompanion.adapters").extend("ollama", {
                 name = "ollama", -- Give this adapter a different name to differentiate it from the default ollama adapter
                 env = {
