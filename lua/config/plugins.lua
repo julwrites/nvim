@@ -658,7 +658,8 @@ function Update()
         -- Configure the plugin
         require('llm').setup({
           model = 'gpt-4o',
-          system_prompt = 'You are a helpful assistant.'
+          system_prompt = 'You are a helpful assistant.',
+          -- debug = true
         })
       end
     }
