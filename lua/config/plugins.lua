@@ -24,8 +24,10 @@ function Update()
 
     -- Theme
     {
-      "navarasu/onedark.nvim", -- Atom's One Dark theme for Neovim
-      config = function() require("onedark").load() end
+      "olimorris/onedarkpro.nvim",
+      config = function()
+        vim.cmd("colorscheme onedark_vivid")
+      end
     },
 
     --------------------------------------------------------------------------------
@@ -657,9 +659,8 @@ function Update()
       config = function()
         -- Configure the plugin
         require('llm').setup({
-          model = 'gpt-4o',
           system_prompt = 'You are a helpful assistant.',
-          -- debug = true
+          debug = true
         })
       end
     }
