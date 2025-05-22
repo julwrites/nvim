@@ -24,9 +24,12 @@ function Update()
 
     -- Theme
     {
-      "olimorris/onedarkpro.nvim",
+      "navarasu/onedark.nvim",
       config = function()
-        vim.cmd("colorscheme onedark_vivid")
+        require("onedark").setup {
+          style = 'darker',
+        }
+        require("onedark").load()
       end
     },
 
