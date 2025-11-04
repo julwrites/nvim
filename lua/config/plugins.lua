@@ -17,6 +17,7 @@ function Update()
     "norcalli/nvim.lua",     -- Lua functions specifically for Neovim
     "nvim-lua/plenary.nvim", -- Common Lua functions used by many plugins
     "MunifTanjim/nui.nvim",  -- UI component library for Neovim plugins
+    "stevearc/dressing.nvim",
 
     -- Additional utility functions
     {
@@ -542,6 +543,19 @@ function Update()
           },
         })
       end
+    },
+
+    -- Flutter integration
+    {
+      'nvim-flutter/flutter-tools.nvim',
+      lazy = false,
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+      },
+      config = function()
+        require("flutter-tools").setup {}
+      end,
     },
 
     --------------------------------------------------------------------------------
