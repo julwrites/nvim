@@ -309,18 +309,6 @@ function Update()
       end
     },
 
-    -- HTTP request client
-    {
-      "rest-nvim/rest.nvim",
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-          opts.ensure_installed = opts.ensure_installed or {}
-          table.insert(opts.ensure_installed, "http") -- Ensure HTTP syntax is installed
-        end,
-      }
-    },
-
     -- Specialized file format support
     "wannesm/wmgraphviz.vim", -- Graphviz dot file support
     "godlygeek/tabular",      -- Text alignment
@@ -371,6 +359,32 @@ function Update()
       dependencies = {
         "MunifTanjim/nui.nvim",
       }
+    },
+
+    -- Bruno support
+    {
+      "romek-codes/bruno.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        -- Pickers
+        "nvim-telescope/telescope.nvim",
+      },
+      config = function()
+        require("bruno").setup(
+          {
+            -- Paths to your bruno collections.
+            collection_paths = {
+              { name = "BibleAIAPI", path = vim.env.HOME .. "/julwrites/bibleaiapi/docs/api/tests/" },
+            },
+            -- Which picker to use, "fzf-lua" or "snacks" are also allowed.
+            picker = "telescope",
+            -- If output should be formatted by default.
+            show_formatted_output = true,
+            -- If formatting fails for whatever reason, don't show error message (will always fallback to unformatted output).
+            suppress_formatting_errors = false,
+          }
+        )
+      end,
     },
 
     --------------------------------------------------------------------------------
