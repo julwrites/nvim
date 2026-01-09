@@ -280,18 +280,10 @@ function Update()
         -- Configure wiki location and format
         nvim.g.vimwiki_list = { {
           path = "~/julwrites/wiki",
-          syntax = "markdown",        -- Use markdown syntax
+          syntax = "markdown",
           ext = ".md"                 -- Use .md extension
         } }
         nvim.g.vimwiki_global_ext = 0 -- Don't treat all .md files as wiki pages
-
-        -- Markdown-specific settings for better compatibility
-        nvim.g.vimwiki_markdown_link_ext = 1  -- Add .md extension to links
-        nvim.g.vimwiki_conceallevel = 2       -- Show links as [[link]] instead of [link](link.md)
-        nvim.g.vimwiki_url_maxsave = 0        -- Don't save URLs in history
-
-        -- Ensure markdown links work for backlinks
-        nvim.g.vimwiki_filetypes = {'markdown'}
 
         -- Wiki navigation keymaps
         nvim.set_keymap("n", "<BS>", ":VimwikiGoBacklink<CR>", {})
@@ -302,10 +294,10 @@ function Update()
         nvim.set_keymap("n", "<Leader>lr", ":VimwikiToggleRejectedListItem<CR>", {})
 
         -- Additional keymaps for markdown wiki
-        nvim.set_keymap("n", "<Leader>wn", ":VimwikiFollowLink<CR>", {})  -- Follow link
-        nvim.set_keymap("n", "<Leader>wb", ":VimwikiGoBackLink<CR>", {})  -- Go back
-        nvim.set_keymap("n", "<Leader>wd", ":VimwikiDeleteLink<CR>", {})  -- Delete link
-        nvim.set_keymap("n", "<Leader>wr", ":VimwikiRenameLink<CR>", {})  -- Rename link
+        nvim.set_keymap("n", "<Leader>wn", ":VimwikiFollowLink<CR>", {}) -- Follow link
+        nvim.set_keymap("n", "<Leader>wb", ":VimwikiGoBackLink<CR>", {}) -- Go back
+        nvim.set_keymap("n", "<Leader>wd", ":VimwikiDeleteLink<CR>", {}) -- Delete link
+        nvim.set_keymap("n", "<Leader>wr", ":VimwikiRenameLink<CR>", {}) -- Rename link
       end
     },
 
