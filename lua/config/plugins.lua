@@ -746,7 +746,7 @@ function Update()
 
     {
       'julwrites/llm-nvim',
-      dir = "~/julwrites/llm-nvim",
+      -- dir = "~/julwrites/llm-nvim",
       config = function()
         -- Configure the plugin
         require('llm').setup({
