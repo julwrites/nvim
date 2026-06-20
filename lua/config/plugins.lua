@@ -480,19 +480,20 @@ function Update()
 
     -- Rust development tools
     {
-      'simrat39/rust-tools.nvim',
-      config = function()
-        local rt = require("rust-tools")
-        rt.setup({
+      'mrcjkb/rustaceanvim',
+      version = '^5', -- Recommended
+      lazy = false, -- This plugin is already lazy
+      init = function()
+        vim.g.rustaceanvim = {
           server = {
             on_attach = function(_, bufnr)
               -- Hover actions for documentation
-              nvim.set_keymap("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+              vim.keymap.set("n", "<C-space>", function() vim.cmd.RustLsp({'hover', 'actions'}) end, { buffer = bufnr })
               -- Code action groups for refactoring
-              nvim.set_keymap("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+              vim.keymap.set("n", "<Leader>a", function() vim.cmd.RustLsp('codeAction') end, { buffer = bufnr })
             end,
           },
-        })
+        }
       end
     },
 
@@ -656,7 +657,6 @@ function Update()
         })
 
         -- Configure LSP servers with completion capabilities
-        local lspconfig = require('lspconfig')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         -- Set up each language server
@@ -672,9 +672,16 @@ function Update()
           "rust_analyzer", -- Rust (modern)
           "ltex",          -- LaTeX/Text
         }) do
-          lspconfig[lsp].setup {
-            capabilities = capabilities
-          }
+          if vim.fn.has('nvim-0.11') == 1 then
+            vim.lsp.config(lsp, {
+              capabilities = capabilities
+            })
+            vim.lsp.enable(lsp)
+          else
+            require('lspconfig')[lsp].setup {
+              capabilities = capabilities
+            }
+          end
         end
       end
     },
